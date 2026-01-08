@@ -1,0 +1,25 @@
+package:
+  name: mbcgmlst
+  version: "0.1.0"
+
+source:
+  path: ../..
+
+build:
+  noarch: python
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - python >=3.9
+    - pip
+    - setuptools
+  run:
+    - python >=3.9
+    - minimap2
+    - tk
+
+about:
+  summary: "cgMLST allele calling pipeline with Ridom-style output."
+  license: "GPL-2.0-only"
+  license_file: "LICENSE"

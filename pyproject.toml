@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mbcgmlst"
+version = "0.1.0"
+description = "cgMLST allele calling pipeline with Ridom-style output."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "GPL-2.0-only"}
+keywords = ["cgmlst", "genomics", "allele", "typing"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+mbcgmlst = "mbcgmlst.cli:main"
+mbcgmlst-gui = "mbcgmlst.gui:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
