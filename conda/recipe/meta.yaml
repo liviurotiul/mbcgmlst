@@ -1,13 +1,18 @@
+{% set name = "mbcgmlst" %}
+{% set version = "0.1.0" %}
+
 package:
-  name: mbcgmlst
-  version: "0.1.0"
+  name: {{ name }}
+  version: {{ version }}
 
 source:
-  path: ../..
+  url: https://github.com/liviurotiul/mbcgmlst/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: TODO_UPDATE_SHA256
 
 build:
+  number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: "{{ PYTHON }} -m pip install . --no-deps --no-build-isolation --no-cache-dir -vv"
 
 requirements:
   host:
@@ -19,7 +24,22 @@ requirements:
     - minimap2
     - tk
 
+test:
+  commands:
+    - mbcgmlst --help
+
 about:
+  home: https://github.com/liviurotiul/mbcgmlst
+  doc_url: https://github.com/liviurotiul/mbcgmlst#readme
+  dev_url: https://github.com/liviurotiul/mbcgmlst/issues
   summary: "cgMLST allele calling pipeline with Ridom-style output."
   license: "GPL-2.0-only"
+  license_family: GPL
   license_file: "LICENSE"
+  description: |
+    cgMLST allele calling pipeline that maps allele FASTA sequences against assembled
+    genomes and emits a Ridom-style CSV.
+
+extra:
+  recipe-maintainers:
+    - liviurotiul
