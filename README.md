@@ -23,7 +23,7 @@ mbcgmlst --alleles alleles/ --output results.csv --keep-temp genome.fasta
 ## GUI
 
 ```bash
-mbcgmlst-gui
+mbcgmlst
 ```
 
 ## CLI vs GUI
